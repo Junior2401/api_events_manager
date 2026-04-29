@@ -1,9 +1,6 @@
 package fr.istic.taa.jaxrs.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import fr.istic.taa.jaxrs.tools.tools;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -61,6 +58,7 @@ public class Evenement implements Serializable {
     // --- Evenement ↔ Ticket ---
     @OneToMany(mappedBy = "evenement", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Schema(description = "Liste des tickets vendus pour cet événement")
+    @JsonIgnore
     private Collection<Ticket> tickets;
 
 

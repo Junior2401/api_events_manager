@@ -1,6 +1,7 @@
 package fr.istic.taa.jaxrs.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -31,6 +32,7 @@ public class TypeEvenement implements Serializable {
 
     @OneToMany(mappedBy = "typeEvenement")
     @Schema(description = "Liste des événements de ce type")
+    @JsonIgnore
     private Collection<Evenement> evenements;
 
     public TypeEvenement() {}

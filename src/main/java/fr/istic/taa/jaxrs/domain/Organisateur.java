@@ -1,6 +1,7 @@
 package fr.istic.taa.jaxrs.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.DiscriminatorValue;
@@ -28,6 +29,7 @@ public class Organisateur extends Personne {
 
     @ManyToMany(mappedBy = "organisateurs")
     @Schema(description = "Liste des événements organisés")
+    @JsonIgnore
     private Set<Evenement> evenements = new HashSet<>();
 
     public Set<Evenement> getEvenements() {
